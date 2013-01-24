@@ -14,57 +14,243 @@
        <!--  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> -->
 
         <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/jquery.mobile.css" />
         <link rel="stylesheet" href="css/jqm-icon-pack-2.1.2-fa.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.css" />
+        
         <!-- <link rel="stylesheet" href="css/main.css"> -->
     </head>
-    <body class="ui-mobile-viewport ui-overlay-c">
-        <section data-role="page" id="one">
-            <header data-role="header" class="ui-header ui-bar-b" data-position="fixed" role="banner">
-                    <a href="index.html" data-icon="home" data-shadow="true" data-iconshadow="true" data-iconpos="notext">Accueil</a>
+    <body class="ui-mobile-viewport ui-overlay-a">
+       
+        <!-- RECHERCHE -->
+        <section data-role="page" id="recherche" data-theme="a">
+            <header data-role="header" data-theme="f" data-position="fixed" role="banner">
+                    <a href="#recherche" data-icon="fahome" data-shadow="false" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-transition="flip">Accueil</a>
                     <h1 class="ui-title" role="heading">es seriez</h1>
-                    <a href="index.html" data-icon="info" data-shadow="true" data-iconshadow="true" data-iconpos="notext">Info</a>
+                    <a href="#info" data-icon="info-sign" data-transition="flip" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Info</a>
             </header>
 
-            <section id="content" data-role="content" class="ui-content">
-                <ul data-role="listview" data-inset="true" data-filter="true">
-                    <li class="ui-li-has-thumb">
-                        <a href="">
-                            <img src="img/fringe.jpg" alt="Fringe" />
-                            <h3>Fringe</h3>
-                            <p>Saison 5, 94 épisodes</p>
-                        </a>
+            <section id="content" data-theme="f" data-role="content" class="ui-content">
+                <ul data-role="listview" data-filter-placeholder="Recherche une série.." class="serieList" data-filter="true" data-inset="false">
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="f" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-f">
+                        <div class="ui-btn-inner ui-li ui-li-has-alt">
+                            <a href="#fiche" data-role="button" data-icon="eye-close" data-theme="f" data-iconpos="notext" data-iconshadow="false" data-shadow="false" class="eye-close noWatch ui-btn ui-btn-corner-all ui-btn-icon-notext ui-btn-up-f" data-corners="true" data-wrapperels="span" title="I don't watch"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">I don't watch</span><span class="ui-icon ui-icon-eye-close">&nbsp;</span></span></a>
+                            <div class="ui-btn-text">
+                                <a href="#fiche" class="serieUrl ui-link-inherit" data-serie="fringe" data-transition="flip">
+                                    <h3 class="serieTitle ui-li-heading"></h3>
+                                </a>
+                            </div>
+                            
+                            <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+                        </div>
                     </li>
-                    <li class="ui-li-has-thumb"><a href="audi.html">Audi</a></li>
-                    <li class="ui-li-has-thumb"><a href="bmw.html">BMW</a></li>
                 </ul>
-
+                <div class="recherche" style="display: none;"><img src="./img/loader.gif" id="loader"></div>
             </section><!-- fin de la section content -->
 
-            <footer data-role="footer" class="ui-footer ui-bar-b ui-footer-fixed slideup" data-position="fixed">
-                <nav data-role="navbar" role="navigation">
+            <footer data-role="footer" data-theme="f" class="ui-footer slideup" data-position="fixed">
+                <nav data-role="navbar" role="navigation" id="nav">
                     <ul class="ui-grid-b">
-                        <li class="ui-block-a"><a href="" title="Agenda" data-icon="page">Agenda</a></li>
-                        <li class="ui-block-b"><a href="" title="Séries" class="ui-btn-active"  data-icon="film">Séries</a></li>
-                        <li class="ui-block-c"><a href="" title="Moi" data-icon="person">Moi</a></li>
+                        <li class="ui-block-a"><a href="#agenda" title="Agenda" data-icon="calendar" data-iconshadow="false" data-transition="flip">Agenda</a></li>
+                        <li class="ui-block-b"><a href="#recherche" class="ui-btn-active" title="Recherche" data-icon="fasearch" data-iconshadow="false" data-transition="flip">Recherche</a></li>
+                        <li class="ui-block-c"><a href="#series" title="Séries" data-icon="film" data-iconshadow="false" data-transition="flip">Séries</a></li>
+                        
                     </ul>
                 </nav>
             </footer>
         </section><!-- fin de la page -->
 
-        <!-- <script src="js/jquery-1.8.3.min.js"></script>
+        <!-- MES SERIES -->
+        <section data-role="page" id="series">
+            <header data-role="header" data-theme="f" data-position="fixed" role="banner">
+                    <a href="#recherche" data-icon="fahome" data-shadow="false" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-transition="flip">Accueil</a>
+                    <h1 class="ui-title" role="heading">es seriez</h1>
+                    <a href="#info" data-icon="info-sign" data-transition="flip" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Info</a>
+            </header>
+
+            <section id="content" data-theme="f" data-role="content" class="ui-content">
+                 <a href="#series" class="btn" data-theme="e" data-role="button" data-icon="farefresh" data-mini="true"  data-inline="true">Rafraichir</a>
+                 <a href="#series" class="btn" data-theme="e" data-role="button" data-icon="film" data-mini="true" data-inline="true">Afficher mes séries</a>
+                <ul data-role="listview" id="agendaList" class="serieList2">
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="f" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-f">
+                        <div class="ui-btn-inner ui-li ui-li-has-alt">
+                            <a href="#fiche" data-role="button" data-icon="eye-close" data-theme="f" data-iconpos="notext" data-iconshadow="false" data-shadow="false" class="eye-close noWatch ui-btn ui-btn-corner-all ui-btn-icon-notext ui-btn-up-f" data-corners="true" data-wrapperels="span" title="I don't watch"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">I don't watch</span><span class="ui-icon ui-icon-eye-close">&nbsp;</span></span></a>
+                            <div class="ui-btn-text">
+                                <a href="#fiche" class="serieUrl ui-link-inherit" data-serie="fringe" data-transition="flip">
+                                    <h3 class="serieTitle ui-li-heading"></h3>
+                                </a>
+                            </div>
+                            
+                            <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="recherche" style="display: none;"><img src="./img/loader.gif" id="loader"></div>
+                    <!-- <li class="ui-li-has-thumb">
+                        <a href="#fiche" data-transition="flip">
+                            <img src="img/fringe.jpg" alt="Fringe" />
+                            <h3 class="serieTitle">Fringe</h3>
+                            <p>Saison 5, 94 épisodes</p>
+                        </a>
+                        <a href="#" id="eye-close" data-icon="eye-close" data-theme="f" data-iconpos="notext" data-iconshadow="false" data-shadow="false">I don't watch</a>
+                    </li>
+                    <li class="ui-li-has-thumb">
+                        <a href="#fiche" data-transition="flip">
+                            <img src="img/mf.jpg" alt="Fringe" />
+                            <h3>Modern Family</h3>
+                            <p>Saison 3, 72 épisodes</p>
+                        </a>
+                        <a href="" id="eye-open" data-icon="eye-open" data-theme="f" data-iconpos="notext" data-iconshadow="false" data-shadow="false">I watch</a>
+                    </li> -->
+            
+            </section><!-- fin de la section content -->
+
+            <footer data-role="footer" data-theme="f" class="ui-footer slideup" data-position="fixed">
+                <nav data-role="navbar" role="navigation" id="nav">
+                    <ul class="ui-grid-b">
+                        <li class="ui-block-a"><a href="#agenda" title="Agenda" data-icon="calendar" data-iconshadow="false" data-transition="flip">Agenda</a></li>
+                         <li class="ui-block-b"><a href="#recherche" title="Recherche" data-icon="fasearch" data-iconshadow="false" data-transition="flip">Recherche</a></li>
+                        <li class="ui-block-c"><a href="#series" class="ui-btn-active" title="Séries" data-icon="film" data-iconshadow="false" data-transition="flip">Séries</a></li> 
+                    </ul>
+                </nav>
+            </footer>
+        </section><!-- fin de la page -->
+
+
+        <!-- UNE FICHE DE SERIE -->
+        <section data-role="page" id="fiche">
+            <header data-role="header" data-theme="f" data-position="fixed" role="banner">
+                    <a href="#recherche" data-icon="fahome" data-shadow="false" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-transition="flip">Accueil</a>
+                    <h1 class="ui-title" role="heading">es seriez</h1>
+                    <a href="#info" data-icon="info-sign" data-transition="flip" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Info</a>
+            </header>
+
+            <section id="content" data-theme="f" data-role="content" class="ui-content serieFiche">
+                <div class="recherche" style="display: none;"><img src="./img/loader.gif" id="loader"></div>
+                <section id="infoFiche">
+                    <h2></h2> 
+                    <a href="#" data-role="button" data-icon="eye-close" data-theme="f" data-iconpos="notext" data-iconshadow="false" data-shadow="false" class="eye-close noWatch">I don't watch</a>
+                   <!-- <label for="watching">Interrupteur :</label>
+                    <select name="watching" id="watching" data-role="slider">
+                        <option value="off">I don't watch</option>
+                        <option value="on">I watch</option>
+                    </select> -->
+                    <figure>
+                         <img src="" alt="" />
+                    </figure>
+                    <p><small>Nbr de saisons&nbsp;:</small> <span class="text_saison"></span></p>
+                    <p><small>Durée d'un épisode&nbsp;:</small> <span class="text_duration"></span></p>
+                    <p><small>Genre&nbsp;:</small> <span class="text_genre"></span></p>
+                    <p><small>Statut&nbsp;:</small> <span class="text_statut"></span></p>
+                    <p><small>Chaine&nbsp;:</small> <span class="text_chaine"></span></p>
+                </section>
+                <section id="descFiche">
+                    <h3>Description</h3>
+                    <p class="text_description"></p>
+                </section>
+
+                <ul data-role="collapsible-set" data-inset="false" data-corners="false" data-theme="b" data-content-theme="f" id="season">
+                        <li data-role="collapsible" data-collapsed="false" class="listSaison ui-li-has-count">
+                            <h4>Saison <span class="seasonNumber"></span></h4>
+                            <span class="ui-li-count"></span>
+
+                            <ul class="listEpisode">
+                                <li class="episode">
+                                    <strong>01</strong> <small>Transilience Thought Unifier Model</small>
+                                    <a href="#" id="eye-close" data-role="button" data-icon="eye-close" data-theme="f" data-iconpos="notext" data-iconshadow="false" data-shadow="false" class="noWatch">I don't watch</a>
+                                </li>
+                               <!-- <li>
+                                    <strong>02</strong> <small>In Absentia</small>
+                                    <a href="#" id="eye-close" data-role="button" data-icon="eye-close" data-theme="f" data-iconpos="notext" data-iconshadow="false" data-shadow="false" class="noWatch">I don't watch</a>
+                                </li> -->
+                            </ul>
+                        </li>
+                    </ul>
+            </section><!-- fin de la section content -->
+
+            <footer data-role="footer" data-theme="f" class="ui-footer slideup" data-position="fixed">
+                <nav data-role="navbar" role="navigation" id="nav">
+                    <ul class="ui-grid-b">
+                        <li class="ui-block-a"><a href="#agenda" title="Agenda" data-icon="calendar" data-iconshadow="false" data-transition="flip">Agenda</a></li>
+                        <li class="ui-block-b"><a href="#recherche" title="Recherche" data-icon="fasearch" data-iconshadow="false" data-transition="flip">Recherche</a></li>
+                        <li class="ui-block-c"><a href="#series" title="Séries" data-icon="film" data-iconshadow="false" data-transition="flip">Séries</a></li>
+                        
+                    </ul>
+                </nav>
+            </footer>
+        </section><!-- fin de la page -->
+
+        <!-- AGENDA -->
+        <section data-role="page" id="agenda">
+            <header data-role="header" data-theme="f" data-position="fixed" role="banner">
+                    <a href="#recherche" data-icon="fahome" data-shadow="false" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-transition="flip">Accueil</a>
+                    <h1 class="ui-title" role="heading">es seriez</h1>
+                    <a href="#info" data-icon="info-sign" data-transition="flip" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Info</a>
+            </header>
+
+            <section id="content" data-theme="f" data-role="content" class="ui-content">
+                <a href="#agenda" class="btn" data-theme="e" data-role="button" data-icon="farefresh" data-mini="true"  data-inline="true">Rafraichir</a>
+                 <a href="#agenda" class="btn" data-theme="e" data-role="button" data-icon="film" data-mini="true" data-inline="true">Afficher l'agenda</a>
+                <ul data-role="listview" id="agendaList">
+                    <li>
+                        <a href="#fiche" class="serieUrl">
+                            <p class="agendaDate"><strong>Lundi 16</strong> <em>janvier</em></p>
+                            <h2>Fringe</h2>
+                            <p class="agendaEpisode"><strong class="agendaNumber">S01E01</strong>&nbsp;-&nbsp;<small>Pilot</small></p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="recherche" style="display: none;"><img src="./img/loader.gif" id="loader"></div>
+            </section><!-- fin de la section content -->
+
+            <footer data-role="footer" data-theme="f" class="ui-footer slideup" data-position="fixed">
+                <nav data-role="navbar" role="navigation" id="nav">
+                    <ul class="ui-grid-b">
+                        <li class="ui-block-a"><a href="#agenda" class="ui-btn-active"  title="Agenda" data-icon="calendar" data-iconshadow="false" data-transition="flip">Agenda</a></li>
+                        <li class="ui-block-b"><a href="#recherche" title="Recherche" data-icon="fasearch" data-iconshadow="false" data-transition="flip">Recherche</a></li>
+                        <li class="ui-block-c"><a href="#series" title="Séries" data-icon="film" data-iconshadow="false" data-transition="flip">Séries</a></li>  
+                    </ul>
+                </nav>
+            </footer>
+        </section><!-- fin de la page agenda -->
+
+        <!-- PAGE INFO -->
+        <section data-role="page" id="info" data-theme="a">
+             <header data-role="header" data-theme="f" data-position="fixed" role="banner">
+                    <a href="#recherche" data-icon="fahome" data-shadow="false" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-transition="flip">Accueil</a>
+                    <h1 class="ui-title" role="heading">es seriez</h1>
+                    <a href="#info" data-icon="info-sign" data-transition="flip" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-btn-active">Info</a>
+            </header>
+
+            <section id="content" data-role="content" class="ui-content">
+                <section class="esDesigner">
+                    <figure>
+                        <a href="http://www.es-designer.be" title="Emmanuel Samu">
+                            <img src="img/logo_es.png" alt="es designer" width="147px" height="157px" />
+                        </a>
+                    </figure>
+                    <p>Copyright 2012 - <a rel="external" href="http://www.es-designer.be" title="Emmanuel Samu">es designer</a></p>
+                </section>
+                <p>es Seriez est une application mobile qui vous permet rapidement et facilement de faire un checkup complet de vos séries TV.</p>
+                <p>Elle vous permet de créée votre propre liste des séries que vous regardez, afin de vous sortir un planning complet de chaque semaine.</p>
+                <p><small><em>Avec l'utilisation de l'<a href="http://www.betaseries.com" rel="external" title="API beta series">API beta series</a></em></small></p>
+            </section><!-- fin de la section content -->
+
+           <footer data-role="footer" data-theme="f" class="ui-footer slideup" data-position="fixed">
+                <nav data-role="navbar" role="navigation" id="nav">
+                    <ul class="ui-grid-b">
+                        <li class="ui-block-a"><a href="#agenda" title="Agenda" data-icon="calendar" data-iconshadow="false" data-transition="flip">Agenda</a></li>
+                        <li class="ui-block-b"><a href="#recherche" title="Recherche" data-icon="fasearch" data-iconshadow="false" data-transition="flip">Recherche</a></li>
+                        <li class="ui-block-c"><a href="#series" title="Séries" data-icon="film" data-iconshadow="false" data-transition="flip">Séries</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </section><!-- fin de la page -->
+
+        <script src="js/jquery-1.8.3.min.js"></script>
         <script src="js/jquery.mobile.min.js"></script>
-        <script src="js/main.js"></script> -->
+        <!--
         <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>-->
+        <script src="js/main.js"></script>
     </body>
 </html>

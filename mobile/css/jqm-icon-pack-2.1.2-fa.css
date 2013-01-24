@@ -12,7 +12,6 @@
 	margin-top: -10px !important;
 	line-height: 20px;
 }
-.ui-icon:before { margin-left: 3px; }
 
 /* fix for Github issue #6 */
 .ui-btn-icon-notext .ui-btn-inner .ui-icon {
@@ -141,11 +140,18 @@
 	display: inline-block;
 }
 .ui-icon:not(.ui-icon-loading), .ui-icon-searchfield::after {
-	background: #666666;
-	background: rgba(0, 0, 0, .4);
-	color: #ffffff;
+	color: #103842;
+	text-shadow: 0px 1px 1px #ccc;
 	font-weight: normal;
-	text-shadow: none;
+}
+.ui-footer .ui-icon:not(.ui-icon-loading), .ui-icon-searchfield::after {
+	color: #81aeba;
+	text-shadow: -1px 0px 0px #000;
+}
+
+.ui-btn-active .ui-icon:not(.ui-icon-loading), .ui-icon-searchfield::after {
+	color: white;
+	text-shadow: 0 1px 1px black;
 }
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
     readers do not read off random characters that represent icons */
@@ -162,8 +168,8 @@
 									}
 .ui-icon-fastar:before                 { content: "\f005"; }
 .ui-icon-star-empty:before           { content: "\f006"; }
-.ui-icon-user:before                 { content: "\f007"; margin-left: 4px; }
-.ui-icon-film:before                 { content: "\f008"; margin-left: 2px; }
+.ui-icon-user:before                 { content: "\f007"; }
+.ui-icon-film:before                 { content: "\f008"; }
 .ui-icon-th-large:before             { content: "\f009"; margin-left: 2px; margin-top: 2px; }
 .ui-icon-th:before                   { content: "\f00a"; margin-left: 3px; margin-top: 2px; }
 .ui-icon-th-list:before              { content: "\f00b"; margin-left: 3px; margin-top: 2px; }
@@ -176,7 +182,7 @@
 .ui-icon-signal:before               { content: "\f012"; margin-left: -1px; }
 .ui-icon-cog:before                  { content: "\f013"; margin-left: 3px; margin-top: 2px; }
 .ui-icon-trash:before                { content: "\f014"; }
-.ui-icon-fahome:before                 { content: "\f015"; }
+.ui-icon-fahome:before                 { content: "\f015"; margin-left: -1px;}
 .ui-icon-file:before                 { content: "\f016"; }
 .ui-icon-time:before                 { content: "\f017"; margin-top: 2px; }
 .ui-icon-road:before                 { content: "\f018"; }
@@ -246,7 +252,7 @@
 .ui-icon-remove-sign:before          { content: "\f057"; margin-top: 2px; }
 .ui-icon-ok-sign:before              { content: "\f058"; margin-top: 2px; }
 .ui-icon-question-sign:before        { content: "\f059"; margin-top: 2px; }
-.ui-icon-info-sign:before            { content: "\f05a"; margin-top: 2px; }
+.ui-icon-info-sign:before            { content: "\f05a"; margin-top: 3px; margin-left: 0px; }
 .ui-icon-screenshot:before           { content: "\f05b"; }
 .ui-icon-remove-circle:before        { content: "\f05c"; margin-top: 2px; }
 .ui-icon-ok-circle:before            { content: "\f05d"; margin-top: 2px; }
